@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'accounts',
     'problems',
     'homepage',
-    'compiler',
     'submit',
 ]
 
