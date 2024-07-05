@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161367.jpg?w=740&t=st=1718815682~exp=1718816282~hmac=6138fe05bfa490362ddb06ce18a6a54b6004af199e691ae79bfcb38c64555a10');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #ffffff; /* White text */
+            font-family: Arial, sans-serif; /* Specify a common font family */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px; /* Centering the content */
+            background-color: rgba(0, 0, 0, 0.8); /* More opaque semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .problem-table {
+            margin-top: 20px; /* Add space above the table */
+        }
+        .no-problems {
+            font-style: italic; /* Italicize message when no problems are found */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Spacing between form groups */
+        }
+        .btn-primary {
+            width: 100%; /* Full-width button */
+            padding: 8px; /* Smaller padding */
+            font-size: 14px; /* Smaller font size */
+        }
+        /* Custom styles for form layout */
+        .form-row {
+            display: flex; /* Flex layout for form rows */
+            align-items: flex-end; /* Align items at the bottom */
+        }
+        .form-group {
+            flex: 1; /* Equal width for form groups */
+            margin-right: 10px; /* Spacing between form groups */
+        }
+        .filter-button {
+            margin-left: 10px; /* Space to the left of the filter button */
+        }
+        /* Adjust size of select elements */
+        select.form-control {
+            height: calc(2.25rem + 2px); /* Match the height of the filter button */
+            font-size: 14px; /* Match the font size of the filter button */
+        }
+        .thead-dark th {
+            background-color: #343a40;
+            border-color: #454d55;
+            color: #ffffff; /* Ensure text is white */
+        }
+        .table-hover tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
+        }
+        .table tbody tr {
+            background-color: rgba(255, 255, 255, 0.1); /* Light row background for better contrast */
+        }
+        .table td, .table th {
+            color: #ffffff; /* Ensure text is white */
+        }
+        a {
+            color: #00dcff; /* Set link color */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <h1 class="text-center mb-4">Problem List</h1>
+
+                <form method="get">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="topicSelect">Select Topic:</label>
+                            <select class="form-control" id="topicSelect" name="topic">
+                                <option value="">All Topics</option>
+                                {% for topic in topics %}
+                                    <option value="{{ topic }}" {% if topic == selected_topic %}selected{% endif %}>{{ topic }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="levelSelect">Select Level:</label>
+                            <select class="form-control" id="levelSelect" name="level">
+                                <option value="">All Levels</option>
+                                {% for level in levels %}
+                                    <option value="{{ level }}" {% if level == selected_level %}selected{% endif %}>{{ level }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group filter-button">
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                        </div>
+                    </div>
+                </form>
+
+                <table class="table table-bordered table-hover problem-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Level</th>
+                            <th>Topic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for problem in problems %}
+                        <tr>
+                            <td><a href="{% url 'problems:problem_detail' pk=problem.unique_id %}">{{ problem.name }}</a>
+                            </td>
+                            <td>{{ problem.level }}</td>
+                            <td>{{ problem.topic }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-center">No problems found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

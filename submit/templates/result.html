@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Result</title>
+    <style>
+        /* Example styling */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .test-case {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .test-case h3 {
+            margin-top: 0;
+        }
+        .test-case pre {
+            white-space: pre-wrap;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .test-case .output {
+            color: green;
+        }
+        .test-case .expected-output {
+            color: blue;
+        }
+        .test-case .wrong-output {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Submission Result</h1>
+
+        {% if error_message %}
+            <h3>{{ error_message }}</h3>
+        {% else %}
+            <h3>Verdict: {{ solution.verdict }}</h3>
+            <h4>Details:</h4>
+            <p>Language: {{ submission.language }}</p>
+            <p>Submitted Code:</p>
+            <pre>{{ submission.code }}</pre>
+            
+            {% if submission.input_data %}
+                {% if solution.results %}
+                {% for result in solution.results %}
+                <p>Provided Input:</p>
+                <pre>{{ solution.results.input_data }}</pre>
+                <p>Overall Output:</p>
+                <pre>{{ solution.results.output_data }}</pre>
+                {% endfor %}
+                {% endif %}
+            {% else %}
+                {% if solution.results %}
+                    {% for result in solution.results %}
+                        <div class="test-case">
+                            <h3>Test Case {{ forloop.counter }}</h3>
+                            <p>Input:</p>
+                            <pre>{{ result.test_case.input }}</pre>
+                            <p>Expected Output:</p>
+                            <pre class="expected-output">{{ result.test_case.output }}</pre>
+                            <p>Actual Output:</p>
+                            {% if result.verdict == "Accepted" %}
+                                <pre class="output">{{ result.actual_output }}</pre>
+                            {% else %}
+                                <pre class="wrong-output">{{ result.actual_output }}</pre>
+                            {% endif %}
+                            <p>Verdict: {{ result.verdict }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No results found for this submission.</p>
+                {% endif %}
+            {% endif %}
+            
+        {% endif %}
+    </div>
+</body>
+</html>

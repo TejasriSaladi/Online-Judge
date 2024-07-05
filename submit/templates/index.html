@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeVerse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff; /* White container background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow effect */
+        }
+        .form-select, .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: #f5f5f5; /* Light gray form field background */
+        }
+        .form-control.code-editor {
+            height: auto; /* Auto height for the code editor */
+            min-height: 300px; /* Minimum height for the code editor */
+        }
+        .form-control:focus {
+            border-color: #007bff; /* Blue border color when focused */
+            outline: 0; /* Remove default focus outline */
+            box-shadow: 0 0 10px rgba(0,123,255,0.2); /* Light blue shadow when focused */
+        }
+        .btn-submit {
+            background-color: #007bff; /* Blue submit button background */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>CodeVerse</h1>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Submit Code</button>
+        </form>
+    </div>
+</body>
+</html>

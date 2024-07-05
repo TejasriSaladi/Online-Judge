@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeverse - Home</title>
+    <style>
+        /* Dark theme styles */
+        body {
+            background-image: url('https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161367.jpg?w=740&t=st=1718815682~exp=1718816282~hmac=6138fe05bfa490362ddb06ce18a6a54b6004af199e691ae79bfcb38c64555a10');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #ffffff; /* White text */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .header h1 {
+            font-size: 5rem; /* Increased font size */
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px; /* Added margin */
+        }
+        .header p {
+            font-size: 1.5rem;
+        }
+        .cta-buttons {
+            margin-top: 30px; /* Adjusted margin */
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px; /* Increased padding for larger button */
+            margin: 0 10px; /* Increased margin */
+            background-color: #4CAF50; /* Green button */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.5rem; /* Increased font size */
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Added box shadow */
+        }
+        .cta-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: translateY(-2px); /* Lift on hover */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px; /* Adjusted margin */
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: #ffffff; /* White text */
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Codeverse</h1>
+            <p>Learn, Practice, Master</p>
+        </div>
+        <div class="cta-buttons">
+            <a href="{% url 'login_view' %}" class="cta-button">Login</a>
+            <a href="{% url 'register_view' %}" class="cta-button">Sign Up</a> <!-- Added Sign Up button -->
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Codeverse. All rights reserved.</p>
+    </div>
+</body>
+</html>

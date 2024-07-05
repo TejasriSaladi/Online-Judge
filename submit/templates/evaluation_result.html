@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        h2 {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .test-case {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-case.pass {
+            background-color: #e0f7e0;
+            border-color: #c5e9c5;
+        }
+        .test-case.fail {
+            background-color: #f7d9d9;
+            border-color: #e9c5c5;
+        }
+        .test-case p {
+            margin: 0;
+            padding: 5px 0;
+        }
+        .test-case pre {
+            white-space: pre-wrap; /* Ensures long output wraps */
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Evaluation Results for Problem: {{ problem.name }}</h1>
+        <h2>Submission ID: {{ submission.id }}</h2>
+        
+        {% if results %}
+            {% for result in results %}
+                <div class="test-case {% if result.verdict == 'Pass' %}pass{% else %}fail{% endif %}">
+                    <p><strong>Test Case:</strong> {{ result.test_case }}</p>
+                    <p><strong>Verdict:</strong> {{ result.verdict }}</p>
+                    <p><strong>Output:</strong></p>
+                    <pre>{{ result.output }}</pre>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No results found for this submission.</p>
+        {% endif %}
+        
+        <a href="{% url 'problem_list' %}" class="back-link">Back to Problem List</a>
+    </div>
+</body>
+</html>
