@@ -31,9 +31,11 @@ Make sure you have the following installed:
    ```
    
 2. Navigate to the project directory
+```bash 
    cd Online-Judge
+```
    
-3. Install dependencies
+4. Install dependencies
   ```bash
 pip install -r requirements.txt
    ```
@@ -41,8 +43,9 @@ pip install -r requirements.txt
 ## Usage
 
 To run the project, use the following command:
-sh
+```bash
 python manage.py runserver
+```
 
 
 ## Contributing
