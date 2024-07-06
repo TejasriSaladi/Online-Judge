@@ -26,8 +26,9 @@ Make sure you have the following installed:
 ### Installation
 
 1. Clone the repo
-   sh
+   ```bash
    git clone https://github.com/TejasriSaladi/Online-Judge.git
+   ```
    
 2. Navigate to the project directory
    cd Online-Judge
