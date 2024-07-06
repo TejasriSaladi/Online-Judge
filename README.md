@@ -37,14 +37,14 @@ Make sure you have the following installed:
    
 3. Install dependencies
    ```bash
-pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
 
 ## Usage
 
 To run the project, use the following command:
    ```bash
-python manage.py runserver
+   python manage.py runserver
    ```
 
 
