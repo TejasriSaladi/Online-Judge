@@ -30,12 +30,11 @@ Make sure you have the following installed:
    git clone https://github.com/TejasriSaladi/Online-Judge.git
    
 2. Navigate to the project directory
-   sh
    cd Online-Judge
    
 3. Install dependencies
-   sh
-   pip install -r requirements.txt
+  ```bash
+pip install -r requirements.txt
    
 
 ## Usage
