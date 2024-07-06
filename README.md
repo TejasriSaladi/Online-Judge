@@ -26,26 +26,26 @@ Make sure you have the following installed:
 ### Installation
 
 1. Clone the repo
-```bash
+   ```bash
    git clone https://github.com/TejasriSaladi/Online-Judge.git
    ```
    
 2. Navigate to the project directory
-```bash 
+   ```bash 
    cd Online-Judge
-```
+   ```
    
 3. Install dependencies
-  ```bash
+   ```bash
 pip install -r requirements.txt
    ```
 
 ## Usage
 
 To run the project, use the following command:
-```bash
+   ```bash
 python manage.py runserver
-```
+   ```
 
 
 ## Contributing
