@@ -35,7 +35,7 @@ Make sure you have the following installed:
    cd Online-Judge
 ```
    
-4. Install dependencies
+3. Install dependencies
   ```bash
 pip install -r requirements.txt
    ```
